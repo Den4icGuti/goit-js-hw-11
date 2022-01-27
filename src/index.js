@@ -32,5 +32,8 @@ async function onSearch(e) {
 
  function onRenderCards(elements) { 
    const marcup = renderCard(elements);
-   refs.galerry.insertAdjacentHTML('beforeend',marcup)
+   refs.gallery.insertAdjacentHTML('beforeend',marcup)
   }
+
+
+  
