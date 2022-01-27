@@ -20,18 +20,19 @@ async function onSearch(e) {
     Notiflix.Notify.info('Field must be filled')
   }
 
-  const response = await API.fetchApi(searchQery,page)
+  const response = await API.fetchApi(searchQery,page).then(onRenderCards);
  
+  
   if (response.totalHits <= per_page) {
     Notiflix.Notify.failure("Sorry, there are no images matching your search query. Please try again.")
   }
-  onRenderCards()
+   
 }
 
 
 
- function onRenderCards(elements) { 
-   const marcup = renderCard(elements);
+ async function onRenderCards(elements) { 
+   const marcup = await renderCard(elements);
    refs.gallery.insertAdjacentHTML('beforeend',marcup)
   }
 
