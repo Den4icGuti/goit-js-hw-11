@@ -1,17 +1,20 @@
+{{#each hits}}
 <div class="photo-card">
-  <img src="" alt="" loading="lazy" />
+  <a href="{{largeImageURL}}"></a>
+  <img src="{{webformatURL}}" alt="{{tags}}" width="280" height="220" loading="lazy" />
   <div class="info">
     <p class="info-item">
-      <b>Likes</b>
+      <b>Likes:{{likes}}</b>
     </p>
     <p class="info-item">
-      <b>Views</b>
+      <b>Views:{{views}}</b>
     </p>
     <p class="info-item">
-      <b>Comments</b>
+      <b>Comments:{{comments}}</b>
     </p>
     <p class="info-item">
-      <b>Downloads</b>
+      <b>Downloads:{{Downloads}}</b>
     </p>
   </div>
 </div>
+{{/each}}
