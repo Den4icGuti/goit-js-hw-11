@@ -7,6 +7,9 @@ import Notiflix from 'notiflix';
 
 
 const refs = refsApi();
+console.log(refs.gallery)
+console.log(refs.form)
+
 
 refs.form.addEventListener('submit',onSearch)
 let per_page = 0;
