@@ -10,27 +10,45 @@ const refs = refsApi();
 
 refs.form.addEventListener('submit',onSearch)
 let per_page = 0;
-let page = 0;
-async function onSearch(e) { 
+let page = 1;
+async function onSearch(e) {
   e.preventDefault()
 
   const searchQery = e.currentTarget.elements.searchQuery.value;
-  
-  if (searchQery.trim() === '') { 
+  page = 2
+  if (searchQery.trim() === '') {
     Notiflix.Notify.info('Field must be filled')
+    return;
   }
 
   const response = await API.fetchApi(searchQery,page)
- 
+   
   if (response.totalHits <= per_page) {
-    Notiflix.Notify.failure("Sorry, there are no images matching your search query. Please try again.")
+    Notiflix.Notify.failure("Sorry, there are no images matching your search query. Please try again.");
+  } else { 
+    onRemoveIshedden();
   }
-  onRenderCards()
+
+  try { 
+    if (response.totalHits > 0) { 
+      Notiflix.Notify.success(`Found ${response.totalHits} images:)`);
+       onRenderCards(response);
+    }
+    
+  } catch (error) { 
+    console.log(error.message)
+  }
+ 
 }
 
 
 
  function onRenderCards(elements) { 
    const marcup = renderCard(elements);
-   refs.galerry.insertAdjacentHTML('beforeend',marcup)
-  }
+  refs.gallery.insertAdjacentHTML('beforeend',marcup)
+ }
+
+function onRemoveIshedden() { 
+  refs.btnLoad.classList.remove('is-hidden')
+}
+  

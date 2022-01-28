@@ -1,7 +1,8 @@
 {{#each hits}}
-<div class="photo-card">
-  <a href="{{largeImageURL}}"></a>
-  <img src="{{webformatURL}}" alt="{{tags}}" width="280" height="220" loading="lazy" />
+<div class="gallery__photo-card">
+  <a href="{{largeImageURL}}">
+  <img  src="{{webformatURL}}" alt="{{tags}}" width="280" height="220" loading="lazy" />
+  </a>
   <div class="info">
     <p class="info-item">
       <b>Likes:{{likes}}</b>
@@ -13,7 +14,7 @@
       <b>Comments:{{comments}}</b>
     </p>
     <p class="info-item">
-      <b>Downloads:{{Downloads}}</b>
+      <b>Downloads:{{downloads}}</b>
     </p>
   </div>
 </div>
