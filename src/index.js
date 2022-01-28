@@ -30,18 +30,15 @@ async function onSearch(e) {
   
   if (response.totalHits <= per_page) {
     Notiflix.Notify.failure("Sorry, there are no images matching your search query. Please try again.")
-  }else{
-    onRenderCards();
   }
-   
 }
 
 
 
- async function onRenderCards(elements) { 
+   async function onRenderCards(elements) { 
    const marcup = await renderCard(elements);
    refs.gallery.insertAdjacentHTML('beforeend',marcup)
   }
 
-
+  
   
