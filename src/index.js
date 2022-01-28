@@ -24,7 +24,7 @@ async function onSearch(e) {
     return;
   }
 
-  const response = await API.fetchApi(searchQery,page)
+  const response = await API.fetchApi(searchQery,page).then(onRenderCards);
   per_page = response.hits.langth;
  
   
