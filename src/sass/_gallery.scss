@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .gallery {
   display: flex;
   flex-wrap: wrap;
@@ -9,3 +10,16 @@
   flex-basis: calc(100% / 3 - 30px);
   margin-left: 30px;
 }
+=======
+.gallery{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: -30px;
+}
+
+.gallery__photo-card{
+    flex-basis: calc(100% / 4 - 20px);
+    margin-left: 20px;
+    margin-top: 30px;
+}
+>>>>>>> cee89d3bf917add0c90cafd6e9c832ddc6b373b1
