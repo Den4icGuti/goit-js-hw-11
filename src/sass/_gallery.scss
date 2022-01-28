@@ -1,0 +1,11 @@
+.gallery{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: -30px;
+}
+
+.gallery__photo-card{
+    flex-basis: calc(100% / 4 - 20px);
+    margin-left: 20px;
+    margin-top: 30px;
+}

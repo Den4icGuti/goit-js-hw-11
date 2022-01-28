@@ -20,14 +20,18 @@ async function onSearch(e) {
   const searchQery = e.currentTarget.elements.searchQuery.value;
   
   if (searchQery.trim() === '') { 
-    Notiflix.Notify.info('Field must be filled')
+    Notiflix.Notify.info('Field must be filled');
+    return;
   }
 
-  const response = await API.fetchApi(searchQery,page).then(onRenderCards);
+  const response = await API.fetchApi(searchQery,page)
+  per_page = response.hits.langth;
  
   
   if (response.totalHits <= per_page) {
     Notiflix.Notify.failure("Sorry, there are no images matching your search query. Please try again.")
+  }else{
+    onRenderCards();
   }
    
 }
