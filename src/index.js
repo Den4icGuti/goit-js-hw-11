@@ -33,9 +33,10 @@ async function onSearch(e) {
   }
 
   try { 
-    if (response.totalHits > 0) { 
+    if (response.totalHits > per_page) { 
       Notiflix.Notify.success(`Found ${response.totalHits} images:)`);
-       onRenderCards(response);
+      onRenderCards(response);
+     
     }
     
   } catch (error) { 
@@ -55,6 +56,9 @@ function onRemoveIshedden() {
   refs.btnLoad.classList.remove('is-hidden')
 }
   
+function onClearContent() { 
+  refs.gallery.innerHTML = '';
+}
   
   
   
