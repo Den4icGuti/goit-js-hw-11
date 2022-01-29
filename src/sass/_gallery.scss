@@ -1,10 +1,30 @@
 .gallery {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 30px;
+  justify-content: center;
 }
 
 .gallery__photo-card {
+  background-color: rgb(255, 254, 254);
+  width: 400px;
+  height: auto;
+  padding: 15px;
+  border-radius: 4px;
+  box-shadow: 1px 4px 14px 12px rgba(16, 120, 201, 0.2);
+
   flex-basis: calc(100% / 4 - 20px);
-  margin-left: 20px;
+  margin-left: 30px;
+  margin-top: 30px;
+}
+
+.info {
+  display: flex;
+  justify-content: center;
+}
+
+.info-item {
+  font-size: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-left: 8px;
 }

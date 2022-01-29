@@ -3,6 +3,5 @@ export default  function refsApi() {
     form: document.querySelector('#search-form'),
     gallery: document.querySelector('.gallery'),
     btnLoad:document.querySelector('.js-load')
-
-  }
+}
 }

@@ -1,7 +1,15 @@
-.btn-load.is-hidden {
-  background-color: bisque;
+.btn-load .is-hidden {
+  background-color: rgb(31, 75, 158);
+  color: #fff;
+  border: inherit;
+  border-radius: 3px;
+
+  display: block;
+  margin: 0 auto;
+  margin-top: 30px;
 }
 
 .is-hidden {
   display: none;
+  padding-top: 30px;
 }
