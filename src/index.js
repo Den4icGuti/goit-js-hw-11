@@ -3,6 +3,9 @@ import API from './api/api-servise';
 import renderCard from './template/card.hbs'
 import refsApi from './refs/refs-parameters';
 import Notiflix from 'notiflix';
+import simpleLightbox from 'simplelightbox'
+import 'simplelightbox/dist/simple-lightbox.min.css';
+
 
 const refs = refsApi();
 
@@ -48,13 +51,13 @@ async function onSearch(e) {
 
 async function onLoadMore() { 
   const response = await API.fetchApi(searchQery, page);
-
-  onIncrementPage()
-  onRenderCards(response.hits);
   perPage += response.hits.length;
-
-  if (perPage > response.totalHits) { 
-    Notiflix.Notify.failure("We're sorry, but you've reached the end of search results.");
+  onIncrementPage()
+  onRenderCards(response);
+ 
+ if (perPage > response.totalHits) { 
+   Notiflix.Notify.info("We're sorry, but you've reached the end of search results.");
+   onAddIshedden();
   }
 }
 
@@ -63,18 +66,37 @@ function onIncrementPage() {
  return page += 1;
 }
 
+function lightbox() { 
+  let gallery = new simpleLightbox('.gallery a', {
+    captions: true,
+    captionsData: 'alt',
+    captionDelay: 250,
+    captionPosition:'bottom'
+  });
+  gallery.refresh();
+}
+  
 function onRenderCards(elements) { 
    const marcup = renderCard(elements);
-  refs.gallery.insertAdjacentHTML('beforeend',marcup)
+  refs.gallery.insertAdjacentHTML('beforeend', marcup)
+  lightbox()
  }
+
 
 function onRemoveIshedden() { 
   refs.btnLoad.classList.remove('is-hidden')
+
 }
+
+function onAddIshedden() { 
+  refs.btnLoad.classList.add('is-hidden')
+  refs.titleEnd.classList.remove('is-hidden')
+}
+  
   
 function onClearContent() { 
   refs.gallery.innerHTML = '';
 }
   
-  
+
   
