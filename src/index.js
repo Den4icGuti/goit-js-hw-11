@@ -66,7 +66,7 @@ function onIncrementPage() {
  return page += 1;
 }
 
-function lightbox() { 
+  function lightbox() { 
   let gallery = new simpleLightbox('.gallery a', {
     captions: true,
     captionsData: 'alt',

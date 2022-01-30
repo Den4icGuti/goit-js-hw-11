@@ -1,6 +1,6 @@
 .btn-load {
-  background-color: rgb(104, 121, 219);
-  color: aliceblue;
+  // background-color: rgb(104, 121, 219);
+  // color: aliceblue;
   display: block;
   margin: 0 auto;
   margin-top: 30px;
@@ -11,9 +11,32 @@
 .end-collection {
   text-align: center;
   font-size: 20px;
-  font-weight: normal;
+  font-style: normal;
+  font-weight: 600;
 }
 
 .is-hidden {
   display: none;
+}
+
+.button-top {
+  width: 50px;
+  min-height: 50px;
+  border-radius: 50px;
+  border: inherit;
+  background-color: lightskyblue;
+  box-shadow: 1px 4px 14px 12px rgba(16, 120, 201, 0.2);
+  position: fixed;
+  left: 90%;
+  top: 92%;
+}
+
+.button-top::after {
+  content: '';
+  background-color: lightyellow;
+  width: 3px;
+  height: 20px;
+  position: absolute;
+  top: 16px;
+  left: 23px;
 }
