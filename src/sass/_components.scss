@@ -19,7 +19,7 @@
   display: none;
 }
 
-.button-top {
+.button-top.is-hidden {
   width: 50px;
   min-height: 50px;
   border-radius: 50px;
@@ -39,4 +39,8 @@
   position: absolute;
   top: 16px;
   left: 23px;
+}
+
+.is-hidden{
+  display: none;
 }
