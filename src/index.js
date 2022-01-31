@@ -2,6 +2,7 @@ import './sass/main.scss';
 import API from './api/api-servise';
 import renderCard from './template/card.hbs'
 import refsApi from './refs/refs-parameters';
+import onScrollSmooth from './scroll/scroll-top';
 import Notiflix from 'notiflix';
 import simpleLightbox from 'simplelightbox'
 import 'simplelightbox/dist/simple-lightbox.min.css';
@@ -50,10 +51,16 @@ async function onSearch(e) {
 
 
 async function onLoadMore() { 
+  refs.btnLoad.disabled = true;
+  
   const response = await API.fetchApi(searchQery, page);
   perPage += response.hits.length;
   onIncrementPage()
+   
   onRenderCards(response);
+ 
+  onScrollSmooth()
+  refs.btnLoad.disabled = false;
  
  if (perPage > response.totalHits) { 
    Notiflix.Notify.info("We're sorry, but you've reached the end of search results.");
